@@ -1,8 +1,9 @@
 import logging
 import os
-from aiogram import Bot, Dispatcher, types, executor
+import asyncio
+from aiogram import Bot, Dispatcher
 from aiogram.filters import Command
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 
 # Настройка логирования
 logging.basicConfig(level=logging.INFO)
@@ -16,7 +17,7 @@ dp = Dispatcher()
 
 # ========== КОМАНДА /start ==========
 @dp.message(Command("start"))
-async def start_command(message: types.Message):
+async def start_command(message: Message):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="📋 Каталог товаров", callback_data="catalog")],
         [InlineKeyboardButton(text="📞 Контакты", callback_data="contacts")],
@@ -28,7 +29,7 @@ async def start_command(message: types.Message):
 
 # ========== КАТАЛОГ ==========
 @dp.callback_query(lambda c: c.data == "catalog")
-async def catalog_handler(call: types.CallbackQuery):
+async def catalog_handler(call: CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="💧 Жидкости", callback_data="liquids")],
         [InlineKeyboardButton(text="🔧 Подики", callback_data="pods")],
@@ -39,7 +40,7 @@ async def catalog_handler(call: types.CallbackQuery):
 
 # ========== ЖИДКОСТИ ==========
 @dp.callback_query(lambda c: c.data == "liquids")
-async def liquids_handler(call: types.CallbackQuery):
+async def liquids_handler(call: CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="Дуал 5% - 500 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text="Рик и Морти кислые 5% - 500 руб", url=f"https://t.me/{OWNER[1:]}")],
@@ -54,7 +55,7 @@ async def liquids_handler(call: types.CallbackQuery):
 
 # ========== ПОДИКИ ==========
 @dp.callback_query(lambda c: c.data == "pods")
-async def pods_handler(call: types.CallbackQuery):
+async def pods_handler(call: CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="Хрос 5 - 3000 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text="Хрос 5 мини - 2500 руб", url=f"https://t.me/{OWNER[1:]}")],
@@ -67,7 +68,7 @@ async def pods_handler(call: types.CallbackQuery):
 
 # ========== РАСХОДНИКИ ==========
 @dp.callback_query(lambda c: c.data == "consumables")
-async def consumables_handler(call: types.CallbackQuery):
+async def consumables_handler(call: CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="Картридж хрос 0,4 - 300 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text="Картридж хрос 0,6 - 300 руб", url=f"https://t.me/{OWNER[1:]}")],
@@ -81,7 +82,7 @@ async def consumables_handler(call: types.CallbackQuery):
 
 # ========== КОНТАКТЫ ==========
 @dp.callback_query(lambda c: c.data == "contacts")
-async def contacts_handler(call: types.CallbackQuery):
+async def contacts_handler(call: CallbackQuery):
     text = f"📞 Контакты\n\nВладелец магазина: {OWNER}\n\nДля заказа нажмите на товар в каталоге"
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="⬅️ Назад", callback_data="back_main")]
@@ -90,7 +91,7 @@ async def contacts_handler(call: types.CallbackQuery):
 
 # ========== ПОМОЩЬ ==========
 @dp.callback_query(lambda c: c.data == "help")
-async def help_handler(call: types.CallbackQuery):
+async def help_handler(call: CallbackQuery):
     text = """❓ Помощь
 
 1. Выберите категорию товара
@@ -107,7 +108,7 @@ async def help_handler(call: types.CallbackQuery):
 
 # ========== НАЗАД В ГЛАВНОЕ ==========
 @dp.callback_query(lambda c: c.data == "back_main")
-async def back_main_handler(call: types.CallbackQuery):
+async def back_main_handler(call: CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="📋 Каталог товаров", callback_data="catalog")],
         [InlineKeyboardButton(text="📞 Контакты", callback_data="contacts")],
@@ -116,6 +117,9 @@ async def back_main_handler(call: types.CallbackQuery):
     await call.message.edit_text("👋 Главное меню:", reply_markup=keyboard)
 
 # ========== ЗАПУСК БОТА ==========
-if __name__ == "__main__":
+async def main():
     logging.info("🚀 Бот запущен на BotHost 24/7!")
-    executor.start_polling(dp, skip_updates=True)
+    await dp.start_polling(bot)
+
+if __name__ == "__main__":
+    asyncio.run(main())
