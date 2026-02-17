@@ -1,5 +1,6 @@
+import asyncio
 import logging
-from aiogram import Bot, Dispatcher, types, executor
+from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -198,7 +199,10 @@ async def back_main_handler(call: types.CallbackQuery):
     
     await call.message.edit_text(text, reply_markup=keyboard, parse_mode='HTML')
 
-# ========== ЗАПУСК БОТА ==========
+# ========== ЗАПУСК БОТА (НОВЫЙ СПОСОБ ДЛЯ AIOGRAM 3.x) ==========
+async def main():
+    logging.info("🚀 Бот запускается...")
+    await dp.start_polling(bot)
+
 if __name__ == "__main__":
-    logging.info("🚀 Бот запущен!")
-    executor.start_polling(dp, skip_updates=True)
+    asyncio.run(main()) 
