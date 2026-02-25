@@ -43,9 +43,9 @@ async def catalog_handler(call: types.CallbackQuery):
 @dp.callback_query(lambda c: c.data == "liquids")
 async def liquids_handler(call: types.CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text=f"{get_status_emoji(True)} Грех/истерика 5% - 500 руб", url=f"https://t.me/{OWNER[1:]}")],
+        [InlineKeyboardButton(text=f"{get_status_emoji(False)} Грех/истерика 5% - 500 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Annima love 6% - 550 руб", url=f"https://t.me/{OWNER[1:]}")],
-        [InlineKeyboardButton(text=f"{get_status_emoji(True)} Подонки critical 7% - 600 руб", url=f"https://t.me/{OWNER[1:]}")],
+        [InlineKeyboardButton(text=f"{get_status_emoji(False)} Подонки critical 7% - 600 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Дуал 5% - 500 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Рик и Морти кислые 5% - 500 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Анархия 6% - 550 руб", url=f"https://t.me/{OWNER[1:]}")],
