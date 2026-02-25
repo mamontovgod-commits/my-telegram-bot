@@ -60,8 +60,8 @@ async def liquids_handler(call: types.CallbackQuery):
 async def pods_handler(call: types.CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text=f"{get_status_emoji(True)} Xros 5 - 2850 руб", url=f"https://t.me/{OWNER[1:]}")],
-        [InlineKeyboardButton(text=f"{get_status_emoji(True)} Xros 5 мини - 2500 руб", url=f"https://t.me/{OWNER[1:]}")],
-        [InlineKeyboardButton(text=f"{get_status_emoji(True)} Pasito 2 - 3600 руб", url=f"https://t.me/{OWNER[1:]}")],
+        [InlineKeyboardButton(text=f"{get_status_emoji(False)} Xros 5 мини - 2500 руб", url=f"https://t.me/{OWNER[1:]}")],
+        [InlineKeyboardButton(text=f"{get_status_emoji(False)} Pasito 2 - 3600 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(True)} Aegis boost 3 - 4600 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Пасито 3 - 4600 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Аегис Хиро 5 - 4500 руб", url=f"https://t.me/{OWNER[1:]}")],
@@ -88,7 +88,7 @@ async def consumables_handler(call: types.CallbackQuery):
 async def disposables_handler(call: types.CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text=f"{get_status_emoji(True)} Подонки малазиан 12000тяг - 1600 руб", url=f"https://t.me/{OWNER[1:]}")],
-        [InlineKeyboardButton(text=f"{get_status_emoji(True)} Рик и Морти зомби 23000тяг - 2000 руб", url=f"https://t.me/{OWNER[1:]}")],
+        [InlineKeyboardButton(text=f"{get_status_emoji(False)} Рик и Морти зомби 23000тяг - 2000 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(True)} Рик и Морти на замерзоне кислые 20000тяг - 1800 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text="⬅️ НАЗАД", callback_data="catalog")]
     ])
