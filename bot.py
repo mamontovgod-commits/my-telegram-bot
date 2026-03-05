@@ -20,22 +20,22 @@ def get_status_emoji(in_stock: bool) -> str:
 @dp.message(Command("start"))
 async def start_command(message: types.Message):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="📋 КАТАЛОГ", callback_data="catalog")],
-        [InlineKeyboardButton(text="📞 КОНТАКТЫ", callback_data="contacts"),
-         InlineKeyboardButton(text="❓ ПОМОЩЬ", callback_data="help")]
+        [InlineKeyboardButton(text=" КАТАЛОГ", callback_data="catalog")],
+        [InlineKeyboardButton(text=" КОНТАКТЫ", callback_data="contacts"),
+         InlineKeyboardButton(text=" ПОМОЩЬ", callback_data="help")]
     ])
     
-    text = "👋 Добро пожаловать в магазин!"
+    text = "👋 Добро пожаловать в бот магазина SmokyRooom,приятных покупок!"
     await message.answer(text, reply_markup=keyboard)
 
 @dp.callback_query(lambda c: c.data == "catalog")
 async def catalog_handler(call: types.CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="💧 ЖИДКОСТИ", callback_data="liquids"),
-         InlineKeyboardButton(text="🔧 ПОДИКИ", callback_data="pods")],
-        [InlineKeyboardButton(text="⚙️ РАСХОДНИКИ", callback_data="consumables"),
-         InlineKeyboardButton(text="🚬 ОДНОРАЗКИ", callback_data="disposables")],
-        [InlineKeyboardButton(text="🏠 ГЛАВНОЕ", callback_data="back_main")]
+        [InlineKeyboardButton(text=" ЖИДКОСТИ", callback_data="liquids"),
+         InlineKeyboardButton(text=" ПОДИКИ", callback_data="pods")],
+        [InlineKeyboardButton(text=" РАСХОДНИКИ", callback_data="consumables"),
+         InlineKeyboardButton(text=" ОДНОРАЗКИ", callback_data="disposables")],
+        [InlineKeyboardButton(text=" ГЛАВНОЕ", callback_data="back_main")]
     ])
     await call.message.edit_text("📋 Каталог:", reply_markup=keyboard)
 
@@ -43,6 +43,7 @@ async def catalog_handler(call: types.CallbackQuery):
 @dp.callback_query(lambda c: c.data == "liquids")
 async def liquids_handler(call: types.CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text=f"{get_status_emoji(True)} Joker 7% - 600 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Грех/истерика 5% - 500 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Annima love 6% - 550 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Подонки critical 7% - 600 руб", url=f"https://t.me/{OWNER[1:]}")],
