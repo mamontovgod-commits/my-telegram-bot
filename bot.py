@@ -43,7 +43,7 @@ async def catalog_handler(call: types.CallbackQuery):
 @dp.callback_query(lambda c: c.data == "liquids")
 async def liquids_handler(call: types.CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text=f"{get_status_emoji(True} Joker 7% - 600 руб", url=f"https://t.me/{OWNER[1:]}")],
+        [InlineKeyboardButton(text=f"{get_status_emoji(True)} Joker 7% - 600 руб", url=f"https://t.me/{OWNER[1:]}")],
          [InlineKeyboardButton(text=f"{get_status_emoji(True)} Подонки critical 7% - 600 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Грех/истерика 5% - 500 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Annima love 6% - 550 руб", url=f"https://t.me/{OWNER[1:]}")],
