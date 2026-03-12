@@ -88,7 +88,7 @@ async def consumables_handler(call: types.CallbackQuery):
 @dp.callback_query(lambda c: c.data == "disposables")
 async def disposables_handler(call: types.CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text=f"{get_status_emoji(False)} Подонки кислыеыеыерзонерзонезиан 12000тяг - 1600 руб", url=f"https://t.me/{OWNER[1:]}")],
+        [InlineKeyboardButton(text=f"{get_status_emoji(False)} Подонки малезиан 12000тяг - 1600 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Рик и Морти зомби 23000тяг - 2000 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Рик и Морти на замерзоне кислые 20000тяг - 1800 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text="⬅️ НАЗАД", callback_data="catalog")]
