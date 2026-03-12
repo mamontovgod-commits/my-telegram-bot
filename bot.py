@@ -1,4 +1,4 @@
-import asyncio
+Falsesyncio
 import logging
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
@@ -43,10 +43,10 @@ async def catalog_handler(call: types.CallbackQuery):
 @dp.callback_query(lambda c: c.data == "liquids")
 async def liquids_handler(call: types.CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text=f"{get_status_emoji(False)} Joker 7% - 600 руб", url=f"https://t.me/{OWNER[1:]}")],
+        [InlineKeyboardButton(text=f"{get_status_emoji(True} Joker 7% - 600 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Грех/истерика 5% - 500 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Annima love 6% - 550 руб", url=f"https://t.me/{OWNER[1:]}")],
-        [InlineKeyboardButton(text=f"{get_status_emoji(False)} Подонки critical 7% - 600 руб", url=f"https://t.me/{OWNER[1:]}")],
+        [InlineKeyboardButton(text=f"{get_status_emoji(True)} Подонки critical 7% - 600 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Дуал 5% - 500 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Рик и Морти кислые 5% - 500 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Анархия 6% - 550 руб", url=f"https://t.me/{OWNER[1:]}")],
@@ -88,9 +88,9 @@ async def consumables_handler(call: types.CallbackQuery):
 @dp.callback_query(lambda c: c.data == "disposables")
 async def disposables_handler(call: types.CallbackQuery):
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text=f"{get_status_emoji(True)} Подонки малазиан 12000тяг - 1600 руб", url=f"https://t.me/{OWNER[1:]}")],
+        [InlineKeyboardButton(text=f"{get_status_emoji(False)} Подонки кислыеыеыерзонерзонезиан 12000тяг - 1600 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text=f"{get_status_emoji(False)} Рик и Морти зомби 23000тяг - 2000 руб", url=f"https://t.me/{OWNER[1:]}")],
-        [InlineKeyboardButton(text=f"{get_status_emoji(True)} Рик и Морти на замерзоне кислые 20000тяг - 1800 руб", url=f"https://t.me/{OWNER[1:]}")],
+        [InlineKeyboardButton(text=f"{get_status_emoji(False)} Рик и Морти на замерзоне кислые 20000тяг - 1800 руб", url=f"https://t.me/{OWNER[1:]}")],
         [InlineKeyboardButton(text="⬅️ НАЗАД", callback_data="catalog")]
     ])
     await call.message.edit_text("🚬 Одноразки:", reply_markup=keyboard)
