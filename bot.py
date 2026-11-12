@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.INFO)
 
 # ========== НАСТРОЙКИ ==========
 # Токен берём из переменной окружения (BOT_TOKEN), иначе — из константы
-TOKEN = os.getenv("BOT_TOKEN", "8446266058:AAGDv4xvk_3xQWFDegWLFqUWz7j7hpdAz0k")
+TOKEN = os.getenv("BOT_TOKEN", "8446266058:AAGD4vxK_3XQWfDegLHFqULmz7J7hpdAz0k")
 OWNER = "@vasabik335"
 
 bot = Bot(token=TOKEN)
