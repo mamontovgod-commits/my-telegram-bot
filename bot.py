@@ -8,7 +8,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 logging.basicConfig(level=logging.INFO)
 
 # ========== ВАШИ НАСТРОЙКИ ==========
-TOKEN = "8446266058:AAFqzp4C9X5FHFQydp_2w2f2k1CwsW3nEK4"
+TOKEN = "8446266058:AAGDv4xvk_3xQWFDegWLFqUWz7j7hpdAz0k"
 OWNER = "@vasabik335"
 
 bot = Bot(token=TOKEN)
